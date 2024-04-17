@@ -1,3 +1,6 @@
+import reactLogo from './assets/react-core-concepts.png'
+import componentsImg from './assets/components.png'
+
 const reactDescriptions = ['fundamentais', 'cruciais', 'principais'];
 
 const getRandomInt = (max) => {
@@ -10,7 +13,7 @@ const Header = () => {
 
   return (
     <header>
-      <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
+      <img src={reactLogo} alt="Stylized atom" />
       <h1>React Essentials</h1>
       <p>
         Conceitos {description} do React que vão te ajudar em quase todos os apps
@@ -20,12 +23,34 @@ const Header = () => {
   );
 }
 
+const CoreConcept = (props) => {
+  return (
+    <li>
+      <img src={props.image} alt="" />
+      <h1>{props.title}</h1>
+      <h2>{props.description}</h2>
+    </li>
+  )
+
+}
+
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <h2>Vamos lá!</h2>
+        <section id='core-concepts'>
+        <h2>Conceitos principais</h2>
+        <ul>
+          <CoreConcept 
+          title="Componentes" 
+          description="O principal bloco de construção da UI"
+          image={componentsImg} />
+          <CoreConcept />
+          <CoreConcept />
+          <CoreConcept />
+        </ul>
+        </section>
       </main>
     </div>
   );
